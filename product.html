@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="mycss/bootstrap.css">
+    <link rel="stylesheet" href="mycss/style.css">
+    <link rel="stylesheet" href="mycss/product.css">
+    <link rel="stylesheet" href="my-boot/my-boot.css">
+    <script src="js/vue.js"></script>
+
+</head>
+<body>
+<!--第一部分-->
+    <div class="banner">
+        <div class="my_search">
+            <div>
+                <input type="text" class="mt-2 border-0 "  placeholder="Enter you search term..." >
+                <span class="float-right "><img src="images/search.png" class="search_btn" alt="" ></span>
+            </div>
+        </div>
+        <div class="clearfix "></div>
+        <div class="row my_bg">
+            <div class="col-lg-4 col-md-6 col-sm-12 text-center mt-2 mb-2">
+                <a href="my_index.html"><img src="images/logo.png" alt=""></a>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 text-center mt-2 mb-2">
+                <a href="#" class="text-white"><h4> SHOP BY PORDUCT &nbsp;&nbsp;&nbsp;&nbsp; SHOP BY SPORT</h4></a>
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12 text-center mt-2 mb-2">
+                <ul class="nav d-flex justify-content-center">
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Account</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Wishlist</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Checkout</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Log In</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white">Sign Up</a></li>
+                </ul>
+                <div class="text-white"><a href="#" class="text-white">Shopping Cart:  0 item(s)   $0.00</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <ol class="breadcrumb bg-white border">
+            <li class="breadcrumb-item"><a href="/my_index.html">Home</a></li>
+            <li class="breadcrumb-item">Products</li>
+        </ol>
+        <div class="row mt-5">
+            <div class="col-lg-3 col-sm-12 shop_select">
+                <h4 class="font-weight-bold">商品选择</h4>
+                <div class="border-bottom"></div>
+                <h6 class="font-weight-bold mt-3">价格</h6>
+                <div class="ml-5">
+                    <span>1.</span><a href="#">$100.00 - $199.99 </a><span>（3）</span><br>
+                    <span>2.</span><a href="#">$200.00 - $299.99 </a><span>（2）</span><br>
+                    <span>3.</span><a href="#">$300.00 - $399.99 </a><span>（1）</span><br>
+                </div>
+                <div class="border-bottom mt-3"></div>
+                <h6 class="font-weight-bold mt-3">生产厂家</h6>
+                <div class="ml-5">
+                    <span>1.</span><a href="#">法拉利</a><span>（1）</span><br>
+                    <span>2.</span><a href="#">凯迪拉克 </a><span>（2）</span><br>
+                    <span>3.</span><a href="#">迈巴赫 </a><span>（1）</span><br>
+                    <span>4.</span><a href="#">雷克萨斯 </a><span>（1）</span><br>
+                </div>
+
+                <div class="border-bottom mt-3"></div>
+                <h6 class="font-weight-bold mt-3">颜色</h6>
+                <div class="ml-5">
+                    <span>1.</span><a href="#">黑色 </a><span>（2）</span><br>
+                    <span>2.</span><a href="#">灰色 </a><span>（2）</span><br>
+                    <span>3.</span><a href="#">白色 </a><span>（2）</span><br>
+                </div>
+
+                <div  class="mt-5">
+                    <img v-for="(img,i) in imgs" :src="imgs[i]"  alt="" v-show="i==index">
+                </div>
+
+            </div>
+            <div class="col-sm-12 col-lg-9">
+                <h4 class="font-weight-bold">新商品</h4>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="product">
+                            <div class="new mt-1">New</div>
+                            <div class="text-center mt-1 product_img" ><img src="images/c1.jpg" ></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height:500px;width:10px;"></div>
+
+    <script>
+        var vm = new Vue({
+            el:".container",
+            data:{
+                imgs:["images/s1.jpg","images/s2.jpg","images/s3.jpg"],
+                index:0
+            },
+            mounted(){//Vue挂载完成后自动执行
+                setInterval(()=>{
+                    this.index++;
+                if(this.index==this.imgs.length)
+                    this.index=0;
+                },3000)
+            }
+        })
+    </script>
+</body>
+</html>
